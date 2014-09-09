@@ -1,0 +1,4 @@
+<?php
+
+// Time to Live in seconds of a session after last user activity (excludes auto-refresh)
+$rcmail_config['session_ttl'] = 60 * 11;
