@@ -51,11 +51,12 @@ class expire_session extends rcube_plugin
 	
 	function expire_session_loginform($content)
 	{
-		$this->add_texts('localization', true);
-
-		$this->include_stylesheet('expire_session.css');
-		$this->include_script('expire_session_login.js');
-		
+		$rcmail = rcmail::get_instance();
+		if ($rcmail->task == 'login' && ($rcmail->action == 'login' || $rcmail->action == "")) 
+		{
+			$this->add_texts('localization', true);		
+			$this->include_script('expire_session_login.js');		
+		}
 		return $content;
 	}
 	
